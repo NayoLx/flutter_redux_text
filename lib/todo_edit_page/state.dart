@@ -4,6 +4,8 @@ import 'package:flutter/material.dart' hide Action, Page;
 import '../global_store/state.dart';
 import '../todo_list_page/todo_component/component.dart';
 
+part 'state.g.dart';
+
 class TodoEditState implements GlobalBaseState, Cloneable<TodoEditState> {
   ToDoState toDo;
 
@@ -18,13 +20,7 @@ class TodoEditState implements GlobalBaseState, Cloneable<TodoEditState> {
 
   @override
   TodoEditState clone() {
-    return TodoEditState()
-      ..nameEditController = nameEditController
-      ..descEditController = descEditController
-      ..focusNodeName = focusNodeName
-      ..focusNodeDesc = focusNodeDesc
-      ..toDo = toDo
-      ..themeColor = themeColor;
+    return _todoEditStateClone(this);
   }
 }
 
